@@ -8,30 +8,35 @@ let lastBtnClicked = "";
 const allBtns = document.querySelectorAll("button");
 allBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    if (isNumberBtn(btn)) {
-      if (displayIsZero() || lastBtnClicked === "operator") {
+    switch (true) {
+      case isNumberBtn(btn):
+        if (displayIsZero() || lastBtnClicked === "operator") {
+          clearDisplay();
+        }
+        addToDisplay(btn.id);
+        currentValue = getDisplayValue();
+        lastBtnClicked = "number";
+        break;
+      case isClearBtn(btn):
+        setDisplayToZero();
+        num1 = "";
+        num2 = "";
+        operator = "";
+        currentValue = getDisplayValue();
+        lastBtnClicked = "clear";
+        break;
+      case isOperatorBtn(btn):
+        operator = btn.textContent;
+        num1 = currentValue;
+        lastBtnClicked = "operator";
+        break;
+      case isEqualsBtn(btn):
+        num2 = currentValue;
+        result = operate(operator, num1, num2);
         clearDisplay();
-      }
-      addToDisplay(btn.id);
-      currentValue = getDisplayValue();
-      lastBtnClicked = "number";
-    } else if (isClearBtn(btn)) {
-      setDisplayToZero();
-      num1 = "";
-      num2 = "";
-      operator = "";
-      currentValue = getDisplayValue();
-      lastBtnClicked = "clear";
-    } else if (isOperatorBtn(btn)) {
-      operator = btn.textContent;
-      num1 = currentValue;
-      lastBtnClicked = "operator";
-    } else if (isEqualsBtn(btn)) {
-      num2 = currentValue;
-      result = operate(operator, num1, num2);
-      clearDisplay();
-      addToDisplay(result);
-      lastBtnClicked = "equals";
+        addToDisplay(result);
+        lastBtnClicked = "equals";
+        break;
     }
   });
 });
