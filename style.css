@@ -25,6 +25,7 @@ button {
   justify-content: space-around;
   gap: 16px;
   background-color: #ed8728;
+  box-shadow: -4px 4px #412f0d, -3px 3px #412f0d, -2px 2px #412f0d;
 }
 
 .display {
@@ -45,10 +46,16 @@ button {
 button {
   border-radius: 6px;
   font-size: 24px;
+  cursor: pointer;
+  box-shadow: -2px 2px #412f0d, -1px 1px #412f0d, -0.5px 0.5px #412f0d;
 }
 
 .number {
   background-color: #f6ca97;
+}
+
+.number:active {
+  background-color: #a67a49;
 }
 
 .operator,
@@ -56,6 +63,15 @@ button {
   background-color: #fbcf67;
 }
 
+.operator:active,
+#equals:active {
+  background-color: #ac852b;
+}
+
 #clear {
   background-color: #fbb825;
+}
+
+#clear:active {
+  background-color: #8c6002;
 }
