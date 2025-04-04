@@ -1,22 +1,37 @@
 let num1 = "";
 let num2 = "";
 let operator = "";
+let result = "";
 let currentValue = 0;
+let lastBtnClicked = "";
 
 const allBtns = document.querySelectorAll("button");
 allBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     if (isNumberBtn(btn)) {
-      if (displayIsZero()) {
+      if (displayIsZero() || lastBtnClicked === "operator") {
         clearDisplay();
       }
       addToDisplay(btn.id);
       currentValue = getDisplayValue();
+      lastBtnClicked = "number";
     } else if (isClearBtn(btn)) {
       setDisplayToZero();
       num1 = "";
       num2 = "";
       operator = "";
+      currentValue = getDisplayValue();
+      lastBtnClicked = "clear";
+    } else if (isOperatorBtn(btn)) {
+      operator = btn.textContent;
+      num1 = currentValue;
+      lastBtnClicked = "operator";
+    } else if (isEqualsBtn(btn)) {
+      num2 = currentValue;
+      result = operate(operator, num1, num2);
+      clearDisplay();
+      addToDisplay(result);
+      lastBtnClicked = "equals";
     }
   });
 });
@@ -24,7 +39,7 @@ allBtns.forEach(btn => {
 // Functions
 
 function add(a, b) {
-  return a + b;
+  return parseInt(a) + parseInt(b);
 }
 
 function subtract(a, b) {
@@ -83,4 +98,8 @@ function isOperatorBtn(btn) {
 
 function isClearBtn(btn) {
   return btn.id === "clear";
+}
+
+function isEqualsBtn(btn) {
+  return btn.id === "equals";
 }
