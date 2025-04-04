@@ -11,9 +11,9 @@ function subtract(a, b) {
 }
 
 function multiply(a, b) {
-  return (a * b).toPrecision(8);
+  return parseFloat((a * b).toPrecision(8));
 }
 
 function divide(a, b) {
-  return (a / b).toPrecision(8);
+  return parseFloat((a / b).toPrecision(8));
 }
