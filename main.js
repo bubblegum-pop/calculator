@@ -2,6 +2,8 @@ let num1;
 let num2;
 let operator;
 
+const clearBtn = document.querySelector("#clear");
+
 // Functions
 
 function add(a, b) {
@@ -31,4 +33,9 @@ function operate(op, a, b) {
     case "/":
       return divide(a, b);
   }
+}
+
+function addToDisplay(btn) {
+  const display = document.querySelector(".display");
+  display.textContent = btn.textContent;
 }
