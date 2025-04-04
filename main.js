@@ -67,3 +67,7 @@ function setDisplayToZero() {
 function isNumberBtn(btn) {
   return btn.className === "number";
 }
+
+function isOperatorBtn(btn) {
+  return btn.className === "operator";
+}
