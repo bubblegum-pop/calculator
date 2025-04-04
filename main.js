@@ -1,6 +1,7 @@
-let num1;
-let num2;
-let operator;
+let num1 = "";
+let num2 = "";
+let operator = "";
+let currentValue = 0;
 
 const allBtns = document.querySelectorAll("button");
 allBtns.forEach(btn => {
@@ -10,8 +11,12 @@ allBtns.forEach(btn => {
         clearDisplay();
       }
       addToDisplay(btn.id);
+      currentValue = getDisplayValue();
     } else if (isClearBtn(btn)) {
       setDisplayToZero();
+      num1 = "";
+      num2 = "";
+      operator = "";
     }
   });
 });
@@ -62,6 +67,10 @@ function displayIsZero() {
 function setDisplayToZero() {
   clearDisplay();
   addToDisplay(0);
+}
+
+function getDisplayValue() {
+  return document.querySelector(".display").textContent;
 }
 
 function isNumberBtn(btn) {
