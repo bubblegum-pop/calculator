@@ -2,7 +2,19 @@ let num1;
 let num2;
 let operator;
 
-const clearBtn = document.querySelector("#clear");
+const allBtns = document.querySelectorAll("button");
+allBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (btn.className === "number") {
+      if (displayIsZero()) {
+        clearDisplay();
+      }
+      addToDisplay(btn.id);
+    } else if (btn.id === "clear") {
+      setDisplayToZero();
+    }
+  });
+});
 
 // Functions
 
@@ -35,7 +47,19 @@ function operate(op, a, b) {
   }
 }
 
-function addToDisplay(btn) {
-  const display = document.querySelector(".display");
-  display.textContent = btn.textContent;
+function addToDisplay(value) {
+  document.querySelector(".display").textContent += value;
+}
+
+function clearDisplay() {
+  document.querySelector(".display").textContent = "";
+}
+
+function displayIsZero() {
+  return document.querySelector(".display").textContent == 0;
+}
+
+function setDisplayToZero() {
+  clearDisplay();
+  addToDisplay(0);
 }
