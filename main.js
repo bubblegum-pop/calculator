@@ -10,7 +10,7 @@ allBtns.forEach(btn => {
         clearDisplay();
       }
       addToDisplay(btn.id);
-    } else if (btn.id === "clear") {
+    } else if (isClearBtn(btn)) {
       setDisplayToZero();
     }
   });
@@ -70,4 +70,8 @@ function isNumberBtn(btn) {
 
 function isOperatorBtn(btn) {
   return btn.className === "operator";
+}
+
+function isClearBtn(btn) {
+  return btn.id === "clear";
 }
