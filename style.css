@@ -1,0 +1,60 @@
+body {
+  background-color: #fbe8c9;
+  font-family: Roboto, sans-serif;
+  color: black;
+}
+
+.display,
+button {
+  border: 2px solid black;
+}
+
+.container,
+.row {
+  display: flex;
+}
+
+.container {
+  width: 300px;
+  height: 450px;
+  flex-direction: column;
+  margin: 32px auto;
+  padding: 16px;
+  border: 4px solid black;
+  border-radius: 10px;
+  justify-content: space-around;
+  gap: 16px;
+  background-color: #ed8728;
+}
+
+.display {
+  text-align: right;
+  border-radius: 2px;
+  padding: 8px;
+  font-size: 36px;
+  background-color: #fbe8c9;
+}
+
+.row,
+button {
+  flex: 1;
+  justify-content: space-around;
+  gap: 12px;
+}
+
+button {
+  border-radius: 6px;
+  font-size: 24px;
+}
+
+.number {
+  background-color: #f6ca97;
+}
+
+.operator {
+  background-color: #fbcf67;
+}
+
+#clear {
+  background-color: #fbb825;
+}
