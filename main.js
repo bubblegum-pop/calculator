@@ -1,15 +1,19 @@
-function add(num1, num2) {
-  return num1 + num2;
+
+
+// Functions
+
+function add(a, b) {
+  return a + b;
 }
 
-function subtract(num1, num2) {
-  return num1 - num2;
+function subtract(a, b) {
+  return a - b;
 }
 
-function multiply(num1, num2) {
-  return (num1 * num2).toPrecision(8);
+function multiply(a, b) {
+  return (a * b).toPrecision(8);
 }
 
-function divide(num1, num2) {
-  return (num1 / num2).toPrecision(8);
+function divide(a, b) {
+  return (a / b).toPrecision(8);
 }
