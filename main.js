@@ -107,4 +107,8 @@ function isClearBtn(btn) {
 
 function isEqualsBtn(btn) {
   return btn.id === "equals";
-}
+} 
+
+// To Do
+
+// Clicking "-" before a number should make it a negative number
