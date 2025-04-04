@@ -5,7 +5,7 @@ let operator;
 const allBtns = document.querySelectorAll("button");
 allBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    if (btn.className === "number") {
+    if (isNumberBtn(btn)) {
       if (displayIsZero()) {
         clearDisplay();
       }
@@ -62,4 +62,8 @@ function displayIsZero() {
 function setDisplayToZero() {
   clearDisplay();
   addToDisplay(0);
+}
+
+function isNumberBtn(btn) {
+  return btn.className === "number";
 }
