@@ -10,7 +10,8 @@ allBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     switch (true) {
       case isNumberBtn(btn):
-        if (displayIsZero() || lastBtnClicked === "operator") {
+        if (displayIsZero() || lastBtnClicked === "operator" 
+        || lastBtnClicked === "equals") {
           clearDisplay();
         }
         addToDisplay(btn.id);
@@ -109,6 +110,25 @@ function isEqualsBtn(btn) {
   return btn.id === "equals";
 } 
 
-// To Do
+// Bugs
 
 // Clicking "-" before a number should make it a negative number
+//    Alternatively, add a "+/-" button
+// Solve what should happen when "=" is pressed before entering all
+//    of the numbers
+// Enable operations with more than 2 numbers
+//    If an operator button is pressed after "num operator num" instead of
+//    the "=" button, should display the result of the first calcuation,
+//    then use that result as the first numberr of the next calculation.
+// If consecutive operator buttons are pressed, the calculator should not
+//    run any evaluations, it should only take the last operator entered
+//    to be used for the next operator
+
+// Extra credit
+
+// Add a "." button and let users input decimals. Make sure you don't let them
+//    type more than one though, like: "12.3.56.5". Disable the "." button if
+//    there is already a decimal separator in the display.
+// Add a "backspace" button, so ther user can undo their last input if they
+//    click the wrong number.
+// Add keyboard support.
